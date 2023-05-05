@@ -71,6 +71,23 @@ class RegistroVacunacion:
     @nombre_vacunado.setter
     def nombre_vacunado(self,value):
         self.__nombre_vacunado=value 
-  
+
+    def Imprimir(self):
+        try:
+            print(f"Registro de Vacunacion")
+            print(f"Codigo: {self.codigo_establecimiento}")
+            print(f"DNI: {self.codigo_empleado}")
+            print(f"Tipo de empleado: {self.codigo_vacunado}")
+            print(f"Turno: {self.codigo_vacuna}")
+            print(f"Apellidos:  {self.nombre_establecimiento}")
+            print(f"Nombres:  {self.nombre_empleado}")
+            print(f"Login:  {self.nombre_vacunado}")
+            
+        except:
+            print("Error en ingreso de datos")
+
+
+r1=RegistroVacunacion()
+r1.Imprimir() 
                     
         
