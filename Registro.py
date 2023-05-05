@@ -15,61 +15,61 @@ class RegistroVacunacion:
             print("Error al ingresar los valores")
         else:
             print("Sin errores")
-   @property
-     def codigo_establecimiento(self):
-        return self.__codigo_establecimiento
+    @property
+      def codigo_establecimiento(self):
+         return self.__codigo_establecimiento
         
-   @property
-     def codigo_empleado(self):
-        return self.__codigo_empleado
+    @property
+      def codigo_empleado(self):
+         return self.__codigo_empleado
         
-   @property
-     def codigo_vacunado(self):
-        return self.__codigo_vacunado
+    @property
+      def codigo_vacunado(self):
+         return self.__codigo_vacunado
         
-   @property
-     def codigo_vacuna(self):
-        return self.__codigo_vacuna
+    @property
+      def codigo_vacuna(self):
+         return self.__codigo_vacuna
         
-   @property
-     def nombre_establecimiento(self):
-        return self.__nombre_establecimiento
+    @property
+      def nombre_establecimiento(self):
+         return self.__nombre_establecimiento
         
-   @property
-     def nombre_empleado(self):
-        return self.__nombre_empleado
+    @property
+      def nombre_empleado(self):
+         return self.__nombre_empleado
     
     @property
-    def nombre_vacunado(self):
-        return self.__nombre_vacunado
+      def nombre_vacunado(self):
+         return self.__nombre_vacunado
         
-    @codigo_establecimiento.setter
-    def codigo_establecimiento(self,value):
-        self.__codigo_establecimiento=value  
+     @codigo_establecimiento.setter
+     def codigo_establecimiento(self,value):
+         self.__codigo_establecimiento=value  
         
-    @codigo_empleado.setter
-    def codigo_empleado(self,value):
-        self.__codigo_empleado=value 
+     @codigo_empleado.setter
+     def codigo_empleado(self,value):
+         self.__codigo_empleado=value 
     
-    @codigo_vacunado.setter
-    def codigo_vacunado(self,value):
-        self.__codigo_vacunado=value  
+     @codigo_vacunado.setter
+     def codigo_vacunado(self,value):
+         self.__codigo_vacunado=value  
         
-    @codigo_vacuna.setter
-    def codigo_vacuna(self,value):
-        self.__codigo_vacuna=value 
+     @codigo_vacuna.setter
+     def codigo_vacuna(self,value):
+         self.__codigo_vacuna=value 
    
-    @nombre_establecimiento.setter
-    def nombre_establecimiento(self,value):
-        self.__nombre_establecimiento=value  
+     @nombre_establecimiento.setter
+     def nombre_establecimiento(self,value):
+         self.__nombre_establecimiento=value  
         
-    @nombre_empleado.setter
-    def nombre_empleado(self,value):
-        self.__nombre_empleado=value 
+     @nombre_empleado.setter
+     def nombre_empleado(self,value):
+         self.__nombre_empleado=value 
         
-    @nombre_vacunado.setter
-    def nombre_vacunado(self,value):
-        self.__nombre_vacunado=value  
+     @nombre_vacunado.setter
+     def nombre_vacunado(self,value):
+         self.__nombre_vacunado=value  
   
                     
         
