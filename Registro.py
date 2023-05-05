@@ -1,13 +1,13 @@
 class RegistroVacunacion:
     def __init__(self):
         try:
-            self.codigo_establecimiento(input("Ingrese codigo de Establecimiento: "))
-            self.codigo_empleado=input("Ingrese codigo de Empleado: ")
+            self.codigo_establecimiento=int(input("Ingrese codigo de Establecimiento: "))
+            self.codigo_empleado=int(input("Ingrese codigo de Empleado: "))
             self.codigo_vacunado=int(input("Ingrese codigo de Vacunado: "))
             self.codigo_vacuna=int(input("Ingrese codigo de Vacuna: "))
-            self.nombre_establecimiento=input("Ingrese Nombre del Establecimiento: ")
-            self.nombre_empleado=input("Ingrese Nombre del Empleado: ")
-            self.nombre_vacunado=input("Ingrese Nombre del Vacunado: ")
+            self.nombre_establecimiento=str(input("Ingrese Nombre del Establecimiento: "))
+            self.nombre_empleado=str(input("Ingrese Nombre del Empleado: "))
+            self.nombre_vacunado=str(input("Ingrese Nombre del Vacunado: "))
             
         except ValueError as error:
             print(f"Ingrese solo datos validos: {error}")
