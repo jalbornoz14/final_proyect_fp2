@@ -85,7 +85,10 @@ class Menu:
         return_to_main_menu = False
         while not return_to_main_menu:
             self.mostrar_sub_menu(opcion, sub_menu)
-            return_to_main_menu = self.sub_menu(opcion, int(input("Seleccione una opción de menu: ")), model)
+            try:
+                return_to_main_menu = self.sub_menu(opcion, int(input("Seleccione una opción de menu: ")), model)
+            except Exception as e:
+                print("Escoga una de las opciones del menu\n")
     
     @staticmethod            
     def __menu_crud(opcion, model):
