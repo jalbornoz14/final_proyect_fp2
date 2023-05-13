@@ -2,20 +2,16 @@ from tabulate import tabulate
 from .services.dataServices import ExcelFileService
 
 
-PATH_EXCEL="./src/excels/pacientes.xlsx"
+PATH_EXCEL="./src/excels/establecimientos.xlsx"
 excel_service = ExcelFileService(PATH_EXCEL)
 
-class Paciente:
-    
+class Establecimiento:
     def __init__(self):
         try: 
             self.__codigo=input("Ingrese el codigo: ")
-            self.__dni=input("Ingrese DNI: ")
-            self.__apellidos=str(input("Ingrese Apellidos: "))
-            self.__nombres=input("Ingrese Nombres: ")
-            self.__telefono=input("Ingrese telefono: ")
-            self.__direccion=input("Ingrese direccion: ")
-            self.__email=input("Ingrese email: ")
+            self.__ruc=input("Ingrese el ruc: ")
+            self.__nombre=input("Ingrese la razon social: ")
+            
             
         except ValueError as error:
             print(f"Ingrese solo numeros validos: {error}")
@@ -24,11 +20,12 @@ class Paciente:
         else:
             print("Sin errores")
         
+    
     def registrar(self):
         records = excel_service.read_file()
         record = [self.__build_record()]
         excel_service.update_file(records + record)
-        print("La vacuna a sido registrada")
+        print("El establecimiento a sido registrado")
     
     def actualizar(self, num):
         record = self.__build_record()
@@ -36,16 +33,12 @@ class Paciente:
         records[num-1] = record
         excel_service.update_file(records)
         print(f"Se ha actualizado el registro {num}\n")
-        
+    
     def __build_record(self):
         return {
             "codigo": self.__codigo,
-            "dni": self.__dni,
-            "apellidos": self.__apellidos,
-            "nombres": self.__nombres,
-            "telefono": self.__telefono,
-            "direccion": self.__direccion,
-            "email": self.__email,
+            "ruc": self.__ruc,
+            "nombre": self.__nombre
         }
     
     @classmethod

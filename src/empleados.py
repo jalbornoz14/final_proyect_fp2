@@ -2,33 +2,25 @@ from tabulate import tabulate
 from .services.dataServices import ExcelFileService
 
 
-PATH_EXCEL="./src/excels/pacientes.xlsx"
+PATH_EXCEL="./src/excels/empleados.xlsx"
 excel_service = ExcelFileService(PATH_EXCEL)
 
-class Paciente:
-    
+class Empleado:
     def __init__(self):
-        try: 
-            self.__codigo=input("Ingrese el codigo: ")
-            self.__dni=input("Ingrese DNI: ")
-            self.__apellidos=str(input("Ingrese Apellidos: "))
-            self.__nombres=input("Ingrese Nombres: ")
-            self.__telefono=input("Ingrese telefono: ")
-            self.__direccion=input("Ingrese direccion: ")
-            self.__email=input("Ingrese email: ")
-            
-        except ValueError as error:
-            print(f"Ingrese solo numeros validos: {error}")
-        except Exception as error:
-            print("Error al ingresar los valores")
-        else:
-            print("Sin errores")
-        
+        self.__codigo = input("Ingresa el codigo:")
+        self.__dni = input("Ingresa el dni:")
+        self.__tipo = input("Ingresa la tipo:")
+        self.__turno = input("Ingresa el turno:")
+        self.__apellidos = input("Ingresa la fecha de vencimiento:")
+        self.__email = input("Ingresa el email:")
+        self.__password = input("Ingresa el password:")
+        self.__direccion = input("Ingresa la direccion:")
+    
     def registrar(self):
         records = excel_service.read_file()
         record = [self.__build_record()]
         excel_service.update_file(records + record)
-        print("La vacuna a sido registrada")
+        print("El empleado a sido registrado")
     
     def actualizar(self, num):
         record = self.__build_record()
@@ -36,16 +28,17 @@ class Paciente:
         records[num-1] = record
         excel_service.update_file(records)
         print(f"Se ha actualizado el registro {num}\n")
-        
+    
     def __build_record(self):
         return {
             "codigo": self.__codigo,
             "dni": self.__dni,
+            "tipo": self.__tipo,
+            "turno": self.__turno,
             "apellidos": self.__apellidos,
-            "nombres": self.__nombres,
-            "telefono": self.__telefono,
-            "direccion": self.__direccion,
             "email": self.__email,
+            "password": self.__password,
+            "direccion": self.__direccion,
         }
     
     @classmethod
