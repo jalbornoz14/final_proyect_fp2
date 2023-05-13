@@ -22,20 +22,25 @@ class Paciente:
         except Exception as error:
             print("Error al ingresar los valores")
         else:
-            print("Sin errores")
+            print("Sin errores\n")
         
     def registrar(self):
         records = excel_service.read_file()
         record = [self.__build_record()]
         excel_service.update_file(records + record)
-        print("La vacuna a sido registrada")
+        print("La vacuna ha sido registrada\n")
     
     def actualizar(self, num):
         record = self.__build_record()
         records = excel_service.read_file()
-        records[num] = record
-        excel_service.update_file(records)
-        print(f"Se ha actualizado el registro {num}\n")
+        if not records:
+            print("No tiene registros por actualizar\n")
+        elif num > len(records) or num < 0:
+            print("No es un registro valido\n")
+        else:
+            records[num] = record
+            excel_service.update_file(records)
+            print(f"Se ha actualizado el registro {num}\n")
         
     def __build_record(self):
         return {
@@ -51,12 +56,18 @@ class Paciente:
     @classmethod
     def eliminar(cls, num):
         records = excel_service.read_file()
-        deleted_record = records.pop(num)
         
-        print("Se ha eliminado el siguiente registro\n")
-        excel_service.format_data([deleted_record])
+        if not records:
+            print("No tiene registros para eliminar\n")
+        elif num > len(records) or num < 0:
+            print("No es un registro valido\n")
+        else:
+            deleted_record = records.pop(num)
         
-        excel_service.update_file(records)
+            print("Se ha eliminado el siguiente registro\n")
+            excel_service.format_data([deleted_record])
+            
+            excel_service.update_file(records)
         
     @classmethod
     def listar(cls):
