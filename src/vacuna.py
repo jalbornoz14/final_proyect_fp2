@@ -45,13 +45,17 @@ class Vacuna:
         deleted_record = records.pop(num-1)
         
         print("Se ha eliminado el siguiente registro\n")
-        print(deleted_record)
+        excel_service.format_data([deleted_record])
         
         excel_service.update_file(records)
-    
+        
     @classmethod
     def lista(cls):
-        print(excel_service.read_file())
+        data = excel_service.read_file()
+        if not data:
+            print("Agrega un nuevo registro para mostrar la tabla\n")
+        else:
+            excel_service.format_data(data)
         
     @classmethod
     def ask_variables(cls):
