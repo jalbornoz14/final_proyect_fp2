@@ -6,14 +6,14 @@ class ExcelFileService:
   
   def read_file(self):
     df = pd.read_excel(self.filename)
-    
-    # convert dataframe to list of dictionaries
     data = df.to_dict(orient='records')
-    
+    print(df)
     return data
   
+  def update_file(self, data):
+    df = pd.DataFrame(data)
+    
+    with pd.ExcelWriter(self.filename) as writer:
+        df.to_excel(writer, sheet_name="Sheet1", index=False)
   
 
-data_service = ExcelFileService('example.xlsx')
-
-print(data_service.read_file())
