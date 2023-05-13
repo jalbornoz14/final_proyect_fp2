@@ -33,7 +33,7 @@ class Paciente:
     def actualizar(self, num):
         record = self.__build_record()
         records = excel_service.read_file()
-        records[num-1] = record
+        records[num] = record
         excel_service.update_file(records)
         print(f"Se ha actualizado el registro {num}\n")
         
@@ -51,7 +51,7 @@ class Paciente:
     @classmethod
     def eliminar(cls, num):
         records = excel_service.read_file()
-        deleted_record = records.pop(num-1)
+        deleted_record = records.pop(num)
         
         print("Se ha eliminado el siguiente registro\n")
         excel_service.format_data([deleted_record])
